@@ -6,7 +6,7 @@ import HabitList from "./components/habit/HabitList";
 function App() {
   return (
     <Provider store={store}>
-      <div className="w-full h-screen flex flex-col items-center space-y-10 mt-10">
+      <div className="w-full h-screen flex flex-col items-center space-y-10 box-border pt-10 bg-[#F7F7F7]">
         <AddHabit />
         <HabitList />
       </div>

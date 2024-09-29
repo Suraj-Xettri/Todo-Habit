@@ -24,17 +24,16 @@ const HabitList = () => {
       ) : (
         <ul className="space-y-2">
           {habits.map((habit, index) => (
-            <div className="flex justify-between">
+            <div className="flex justify-between bg-[#FFFFFF] px-2 py-4 rounded-xl">
               <li key={index} className="p-2 rounded">
                 <span className="font-medium">{habit.name}</span> -{" "}
                 <span>{habit.type === "daily" ? "Daily" : "Monthly"}</span>
               </li>
-
               <div className="space-x-2">
-                <button onClick={() => handleStatusChange(index)} className="bg-sky-400 text-white p-2 rounded">
+                <button onClick={() => handleStatusChange(index)} className={`${habit.situation === "Pending"? "bg-[#FFC107]": "bg-[#4CAF50]"} text-white p-2 rounded`}>
                   {habit.situation === "Pending" ? "Pending..." : "Completed"}
                 </button>
-                <button onClick={() => handleDelete(index)} className="bg-red-500 text-white p-2 rounded hover:bg-red-600 transition duration-300">
+                <button onClick={() => handleDelete(index)} className="bg-[#F44336] text-white p-2 rounded hover:bg-red-600 transition duration-300">
                   Delete
                 </button>
               </div>
