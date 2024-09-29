@@ -10,9 +10,18 @@ const habitSlice = createSlice({
     addHabit: (state, action) => {
       state.habits.push(action.payload);  // Add habit to the array
     },
-    // Define other reducers if needed like delete, complete, cancel, etc.
+
+    deletHabit: (state, action) => {
+      state.habits = state.habits.filter((_, index) => index !== action.payload)
+    },
+    updateHabitStatus: (state, action) => {
+      const { index, status } = action.payload;
+      if (state.habits[index]) {
+        state.habits[index].situation = status; // Update the status of the habit
+      }
+    },
   }
 });
 
-export const { addHabit } = habitSlice.actions;
+export const { addHabit, deletHabit,updateHabitStatus } = habitSlice.actions;
 export default habitSlice.reducer;
