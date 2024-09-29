@@ -1,14 +1,18 @@
+// src/store/slice.js
 import { createSlice } from "@reduxjs/toolkit";
 
-const Slice = createSlice({
-    name:"habits",
-    initialState:{
-        habit: null
+const habitSlice = createSlice({
+  name: "habits",
+  initialState: {
+    habits: []  // Holds all habits
+  },
+  reducers: {
+    addHabit: (state, action) => {
+      state.habits.push(action.payload);  // Add habit to the array
     },
-    reducers:{
-        addHabit : () => {}
-    }
-})
+    // Define other reducers if needed like delete, complete, cancel, etc.
+  }
+});
 
-export const {addHabit} = Slice.actions;
-export default Slice.reducer;
+export const { addHabit } = habitSlice.actions;
+export default habitSlice.reducer;
